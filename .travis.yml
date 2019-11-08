@@ -9,5 +9,9 @@ script:
   - sudo docker-compose up -d mysql redis
   - sudo docker ps
   - sudo docker-compose run greencandle-unittest
-  - on:
-    tags: true
+
+deploy:
+  -provider: script
+   script: echo "I should not see this in a branch"
+   on:
+     tags: true
